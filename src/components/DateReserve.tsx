@@ -4,10 +4,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Select, MenuItem, TextField } from "@mui/material";
 import { useState } from "react";
+import { Dayjs } from "dayjs";
 
-export default function DateReserve() {
+export default function DateReserve({onDateChange, onLocationChange}
+    :{onDateChange:Function, onLocationChange:Function}) {
 
-    const [reserveDate, setReserveDate] = useState(null);
+    const [reserveDate, setReserveDate] = useState<Dayjs|null>(null);
     const [location, setLocation] = useState('BKK');
 
     return (
@@ -15,15 +17,15 @@ export default function DateReserve() {
         w-fit px-10 py-5 flex flex-row justify-center">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker className="bg-white"
-                value={reserveDate} onChange={(value)=>{setReserveDate(value); alert(value)}}/>
+                value={reserveDate} onChange={(value)=>{setReserveDate(value); onDateChange(value)}}/>
             </LocalizationProvider>
 
             <Select variant="standard" id="hospital" value={location}
-            onChange={(e)=>setLocation(e.target.value)}
+            onChange={(e)=>{setLocation(e.target.value); onLocationChange(e.target.value)}}
             className="h-[2em] w-[200px]" defaultValue="Chula">
-                <MenuItem value="Chula" onClick={()=>alert("Chula")}>Chulalongkorn Hospital</MenuItem>
-                <MenuItem value="Rajavithi" onClick={()=>alert("Rajavithi")}>Rajavithi Hospital</MenuItem>
-                <MenuItem value="Thammasat" onClick={()=>alert("Thammasat")}>Thammasat University Hospital</MenuItem>
+                <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
+                <MenuItem value="Rajavithi">Rajavithi Hospital</MenuItem>
+                <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem>
             </Select>
         </div>
     );

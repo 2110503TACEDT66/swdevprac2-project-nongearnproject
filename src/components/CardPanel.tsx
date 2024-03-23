@@ -3,7 +3,7 @@ import { useReducer, useRef, useState, useEffect } from "react";
 import Card from "./Card";
 import Link from "next/link";
 import getHospitals from "@/libs/getCoWorkingSpaces";
-import { HospitalItem,HospitalJson } from "../../interface";
+import { HospitalItem, HospitalJson } from "../../interface";
 export default function CardPanel() {
 
     const [hospitalResponse, setHospitalResponse] = useState<HospitalJson | null>(null)

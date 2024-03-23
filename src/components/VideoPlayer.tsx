@@ -15,9 +15,6 @@ export default function VideoPlayer({vdoSrc, isPlaying, onPlayPause} :
         }
     }, [isPlaying])
 
-    useWindowListener("resize", (e)=>{alert('Window Width is ' 
-    + (e.target as Window).innerWidth)});
-
     return (
         <video className="w-[40%]" src={vdoSrc} ref={vdoRef} controls loop muted
         onPlay={()=>{onPlayPause(true)}} onPause={()=>{onPlayPause(false)}}/>
