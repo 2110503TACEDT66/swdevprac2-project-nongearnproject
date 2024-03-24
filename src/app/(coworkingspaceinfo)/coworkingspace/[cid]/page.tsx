@@ -17,7 +17,8 @@ export default async function CardDetailPage({params} : {params: {cid:string}}) 
                 <Image src={coworkingspaceDetail.data.picture}
                 alt='CoWorkingSpace Image' width={0} height={0} sizes="100vw"
                 className="rounded-lg w-[30%]"/>
-                <div className="text-md mx-5 text-left">{coworkingspaceDetail.data.name}
+                <div className="mx-5 text-left">
+                    <div className="text-3xl mx-5 font-md mb-5">{coworkingspaceDetail.data.name}</div>
                     <div className="text-md mx-5">Address: {coworkingspaceDetail.data.address}</div>
                     <div className="text-md mx-5">Tel: {coworkingspaceDetail.data.tel}</div>
                 </div>
