@@ -5,3 +5,5 @@ export default async function getCoWorkingSpace(id:string) {
     }
     return await response.json()
 }
+
+//http://localhost:5000/api/v1/coworkingspaces

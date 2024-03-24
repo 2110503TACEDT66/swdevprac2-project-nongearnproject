@@ -10,7 +10,8 @@ export default async function CarCatalog({coworkingspacesJson} : {coworkingspace
             flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
                 {
                     coworkingspacesJsonReady.data.map((coworkingspaceItem:CoWorkingSpaceItem)=>(
-                        <Link href={`/coworkingspace/${coworkingspaceItem.id}`} className="w-1/5" key={coworkingspaceItem.id}>
+                        <Link href={`/coworkingspace/${coworkingspaceItem.id}`} className="w-[100%] sm:w-[50%] md:w-[30%] lg:w-[25%]
+                        p-2 sm:p-4 md:p-4 lg:p-8" key={coworkingspaceItem.id}>
                             <Card coworkingspaceName={coworkingspaceItem.name} imgSrc={coworkingspaceItem.picture}/>
                         </Link>
                     ))
