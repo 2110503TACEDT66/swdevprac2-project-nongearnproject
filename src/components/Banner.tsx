@@ -21,8 +21,8 @@ export default function Banner() {
             priority
             style={{objectFit:"cover"}}/>
             <div className='relative z-20 text-center top-24'>
-                <h1 className='text-4xl font-medium'>Vaccine Service Center</h1>
-                <h2 className='text-xl font-serif'>Get Covid-19 Protection Now!!!</h2>
+                <h1 className='text-4xl font-medium'>CoWorkingSpace Booking Center</h1>
+                <h2 className='text-xl font-serif'>Book CoWorkingSpace Now!!!</h2>
             </div>
 
             {
@@ -36,8 +36,8 @@ export default function Banner() {
             <button className='bg-white text-cyan border border-cyan-600
             font-semibold py-2 px-2 m-2 rounded z-30 absolute bottom-0 right-0
             hover:bg-cyan-600 hover:text-white hover:border-transpasrent'
-            onClick={(e)=>{e.stopPropagation(); router.push('/hospital')}}>
-                Select Hospital
+            onClick={(e)=>{e.stopPropagation(); router.push('/coworkingspace')}}>
+                Select CoWorkingSpace
             </button>
         </div>
     );

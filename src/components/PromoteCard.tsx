@@ -16,7 +16,7 @@ export default function PromoteCard() {
             <VideoPlayer vdoSrc="/vdo/getvaccine.mp4" onPlayPause={setPlaying}
             isPlaying={playing}></VideoPlayer>
             <div className="m-5 relative">
-                Get your vaccine today.
+                Book your coworkingspace today.
                 <button className="absolute bottom-0 left-0 rounded-md 
                 bg-sky-600 hover:bg-indigo-600 px-3 py-2 text-white shadow-sm" 
                 onClick={() => {setPlaying(!playing)}}>

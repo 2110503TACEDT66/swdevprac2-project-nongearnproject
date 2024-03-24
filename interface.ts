@@ -1,4 +1,4 @@
-export interface HospitalItem {
+export interface CoWorkingSpaceItem {
     _id: string,
     name: string,
     address: string,
@@ -15,15 +15,15 @@ export interface BookingItem {
   name: string,
   surname: string,
   id: string,
-  hospital: string,
+  coworkingspace: string,
   bookDate: string
 }
   
-export interface HospitalJson {
+export interface CoWorkingSpaceJson {
     success: boolean,
     count: number,
     pagination: Object,
-    data: HospitalItem[]
+    data: CoWorkingSpaceItem[]
 }
 
 export interface UserJson {

@@ -18,7 +18,7 @@ export default function Booking() {
                 name: fname,
                 surname: lname,
                 id: citizenid,
-                hospital: pickupLocation,
+                coworkingspace: pickupLocation,
                 bookDate: dayjs(pickupDate).format("YYYY/MM/DD")
             }
             dispatch(addBooking(item))
@@ -33,7 +33,7 @@ export default function Booking() {
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-6">
-            <div className="text-6xl text-center">Vaccine Booking</div>
+            <div className="text-6xl text-center">CoWorkingSpace Booking</div>
 
             <div className="flex flex-col space-y-6 p-6">
                 <TextField variant="standard" name="Name" label="Name"
@@ -56,7 +56,7 @@ export default function Booking() {
             <button name="Book Vaccine" className="block rounded-md bg-sky-600 
             hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
             onClick={makeBooking}>
-                Book Vaccine
+                Book CoWorkingSpace
             </button>
         </main>
     );

@@ -2,34 +2,34 @@
 import { useReducer, useRef, useState, useEffect } from "react";
 import Card from "./Card";
 import Link from "next/link";
-import getHospitals from "@/libs/getCoWorkingSpaces";
-import { HospitalItem, HospitalJson } from "../../interface";
+import getCoWorkingSpaces from "@/libs/getCoWorkingSpaces";
+import { CoWorkingSpaceItem, CoWorkingSpaceJson } from "../../interface";
 export default function CardPanel() {
 
-    const [hospitalResponse, setHospitalResponse] = useState<HospitalJson | null>(null)
+    const [coworkingspaceResponse, setCoWorkingSpaceResponse] = useState<CoWorkingSpaceJson | null>(null)
 
     useEffect(()=>{
         const fetchData = async () => {
-            const hospitals = await getHospitals()
-            setHospitalResponse(hospitals)
+            const coworkingspace = await getCoWorkingSpaces()
+            setCoWorkingSpaceResponse(coworkingspace)
         }
         fetchData()
     }, [])
     
-    const ratingReducer = (ratings:Map<string, number | null>, action:{type:string, hospitalName:string, rating:number | null}) => {
+    const ratingReducer = (ratings:Map<string, number | null>, action:{type:string, coworkingspaceName:string, rating:number | null}) => {
         switch(action.type) {
             case 'add': {
                 const newMap = new Map<string, number | null>(ratings);
                 if (action.rating===null) {
-                    newMap.delete(action.hospitalName);
+                    newMap.delete(action.coworkingspaceName);
                     return newMap;
                 } else {
-                    newMap.set(action.hospitalName, action.rating);
+                    newMap.set(action.coworkingspaceName, action.rating);
                     return newMap;
                 }
             }
             case 'remove': {
-                ratings.delete(action.hospitalName);
+                ratings.delete(action.coworkingspaceName);
                 return new Map<string, number | null>(ratings);
             }
             default: return ratings;
@@ -44,27 +44,27 @@ export default function CardPanel() {
     //     {cid: "003", name: "Thammasat University Hospital", image: "/img/thammasat.jpg"}
     // ]
 
-    if(!hospitalResponse) return (<p>Car Panel is Loading ...</p>)
+    if(!coworkingspaceResponse) return (<p>Car Panel is Loading ...</p>)
 
     return (
         <div>
             <div style={{margin:"20px", display:"flex", flexDirection:"row",
             flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
               {
-                    hospitalResponse.data.map((cardItem:HospitalItem)=>(
+                    coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(
                         // updated data
-                        <Link href={`/hospital/${cardItem.id}`} className="w-1/5" key={cardItem.id}> 
-                            <Card hospitalName={cardItem.name} imgSrc={cardItem.picture} value={ratings.get(`${cardItem.name}`) ?? 0} 
-                            onRating={(hospital:string, ratings:number | null)=>dispatchRating({type:'add', hospitalName:hospital, rating:ratings})}/>
+                        <Link href={`/coworkingspace/${cardItem.id}`} className="w-1/5" key={cardItem.id}> 
+                            <Card coworkingspaceName={cardItem.name} imgSrc={cardItem.picture} value={ratings.get(`${cardItem.name}`) ?? 0} 
+                            onRating={(coworkingspace:string, ratings:number | null)=>dispatchRating({type:'add', coworkingspaceName:coworkingspace, rating:ratings})}/>
                         </Link>
                     ))
                 }
             </div>
             <div className="w-full text-xl font-medium">Rating List: {ratings.size}</div>
-            {Array.from(ratings).map(([hospital, rating]) => (
-                <div key={hospital} data-testid={hospital} 
-                onClick={()=>{dispatchRating({type:'remove', hospitalName:hospital, rating:0});}}>
-                    {hospital}: {rating}
+            {Array.from(ratings).map(([coworkingspace, rating]) => (
+                <div key={coworkingspace} data-testid={coworkingspace} 
+                onClick={()=>{dispatchRating({type:'remove', coworkingspaceName:coworkingspace, rating:0});}}>
+                    {coworkingspace}: {rating}
                 </div>
             ))}
         </div>
