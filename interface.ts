@@ -8,7 +8,8 @@ export interface CoWorkingSpaceItem {
     tel: string,
     picture: string,
     __v: number,
-    id: string
+    id: string,
+    image?: string
 }
 
 export interface BookingItem {
