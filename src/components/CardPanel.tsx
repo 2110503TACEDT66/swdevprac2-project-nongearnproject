@@ -31,7 +31,7 @@ export default function CardPanel() {
               {
                     coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(
                         <Link href={`/coworkingspace/${cardItem.id}`} className="w-1/5" key={cardItem.id}> 
-                            <Card coworkingspaceName={cardItem.name} imgSrc={cardItem.picture}/>
+                            <Card coworkingspaceName={cardItem.name} imgSrc={cardItem.image}/>
                         </Link>
                     ))
                 }

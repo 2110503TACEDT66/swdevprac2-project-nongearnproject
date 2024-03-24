@@ -2,14 +2,12 @@ export interface CoWorkingSpaceItem {
     _id: string,
     name: string,
     address: string,
-    district: string,
-    province: string,
-    postalcode: string,
     tel: string,
-    picture: string,
+    open_time: string,
+    close_time: string,
     __v: number,
     id: string,
-    image?: string
+    image: string
 }
 
 export interface BookingItem {
