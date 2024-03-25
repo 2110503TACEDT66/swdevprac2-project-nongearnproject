@@ -29,7 +29,7 @@ export default function Booking() {
     const [lname, setLname] = useState<string>("")
     const [citizenid, setCitizenId] = useState<string>("")
     const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)
-    const [pickupLocation, setPickupLocation] = useState<string>('Chulalongkorn Hospital')
+    const [pickupLocation, setPickupLocation] = useState<string>("")
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-6">
