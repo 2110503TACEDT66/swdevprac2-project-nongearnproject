@@ -1,7 +1,12 @@
 import Link from "next/link"
 import Card from "./Card"
 import { CoWorkingSpaceItem, CoWorkingSpaceJson } from "../../interface"
+import { revalidateTag } from "next/cache"
+
 export default async function CoWorkingSpaceCatalog({coworkingspacesJson} : {coworkingspacesJson:Promise<CoWorkingSpaceJson>}) {
+    
+    revalidateTag("coworkingspaces")
+
     const coworkingspacesJsonReady = await coworkingspacesJson
     return (
         <>
