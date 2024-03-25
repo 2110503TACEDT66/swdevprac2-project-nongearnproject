@@ -1,5 +1,5 @@
 export default async function getCoWorkingSpaces() {
-    const response = await fetch("https://swdevprac2-project-nongearnproject.vercel.app/api/coworkingspaces", { next: {tags:['coworkingspaces']}})
+    const response = await fetch("https://presentation-day-1-nongearnproject-black.vercel.app/api/v1/coworkingspaces", { next: {tags:['coworkingspaces']}})
     if(!response.ok) {
         throw new Error("Failed to fetch CoWorkingSpaces")
     }
