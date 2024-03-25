@@ -16,13 +16,13 @@ export default function CardPanel() {
         fetchData()
     }, [])
 
-    if(!coworkingspaceResponse) return (<p>Car Panel is Loading ...</p>)
+    if(!coworkingspaceResponse) return (<p>Card Panel is Loading ...</p>)
 
     return (
         <div>
             <div style={{margin:"20px", display:"flex", flexDirection:"row",
             flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
-              {
+                {
                     coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(
                         <Link href={`/coworkingspace/${cardItem.id}`} className="w-1/5" key={cardItem.id}> 
                             <Card coworkingspaceName={cardItem.name} imgSrc={cardItem.image}/>

@@ -3,16 +3,26 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Select, MenuItem, TextField } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dayjs } from "dayjs";
+import getCoWorkingSpaces from "@/libs/getCoWorkingSpaces";
+import { CoWorkingSpaceJson, CoWorkingSpaceItem } from "../../interface";
 
 export default function DateReserve({onDateChange, onLocationChange}
     :{onDateChange:Function, onLocationChange:Function}) {
     
-    //const coworkingspaces = getCoWorkingSpaces()
+    const [coworkingspaceResponse, setCoWorkingSpaceResponse] = useState<CoWorkingSpaceJson | null>(null)
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            const coworkingspace = await getCoWorkingSpaces()
+            setCoWorkingSpaceResponse(coworkingspace)
+        }
+        fetchData()
+    }, [])
 
     const [reserveDate, setReserveDate] = useState<Dayjs|null>(null);
-    const [location, setLocation] = useState('BKK');
+    const [location, setLocation] = useState('');
 
     return (
         <div className="bg-slate-100 rounded-lg space-x-5 space-y-2
@@ -25,9 +35,12 @@ export default function DateReserve({onDateChange, onLocationChange}
             <Select variant="standard" id="hospital" value={location}
             onChange={(e)=>{setLocation(e.target.value); onLocationChange(e.target.value)}}
             className="h-[2em] w-[200px]">
-                <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
-                <MenuItem value="Rajavithi">Rajavithi Hospital</MenuItem>
-                <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem>
+                {
+                coworkingspaceResponse?
+                coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(                    
+                    <MenuItem value="{cardItem.name}">{cardItem.name}</MenuItem>
+                )) : null
+                }
             </Select>
         </div>
     );
