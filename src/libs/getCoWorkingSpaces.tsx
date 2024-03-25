@@ -1,9 +1,9 @@
 export default async function getCoWorkingSpaces() {
-    //const response = await fetch("http://localhost:3000/api/coworkingspaces", { next: {tags:['coworkingspaces']}})
-    // if(!response.ok) {
-    //     throw new Error("Failed to fetch CoWorkingSpaces")
-    // }
-    // return await response.json()
+    const response = await fetch("https://swdevprac2-project-nongearnproject.vercel.app/api/coworkingspaces", { next: {tags:['coworkingspaces']}})
+    if(!response.ok) {
+        throw new Error("Failed to fetch CoWorkingSpaces")
+    }
+    return await response.json()
 }
 
 //http://localhost:3000/api/coworkingspaces

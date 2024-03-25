@@ -11,7 +11,7 @@ export default function CardPanel() {
     useEffect(()=>{
         const fetchData = async () => {
             const coworkingspace = await getCoWorkingSpaces()
-            //setCoWorkingSpaceResponse(coworkingspace)
+            setCoWorkingSpaceResponse(coworkingspace)
         }
         fetchData()
     }, [])
