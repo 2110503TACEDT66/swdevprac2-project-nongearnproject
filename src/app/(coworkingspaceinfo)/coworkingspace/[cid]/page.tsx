@@ -1,30 +1,26 @@
 import Image from "next/image"
 import getCoWorkingSpace from "@/libs/getCoWorkingSpace";
+import { CoWorkingSpaceItem } from "../../../../../interface";
 
 export default async function CardDetailPage({params} : {params: {cid:string}}) {
     
-    const coworkingspaceDetail = await getCoWorkingSpace(params.cid)
+    // const coworkingspaceDetail:CoWorkingSpaceItem = await getCoWorkingSpace(params.cid)
 
-    // const mockCardRepo = new Map();
-    // mockCardRepo.set("001", {name: "Chulalongkorn Hospital", image: "/img/chula.jpg"});
-    // mockCardRepo.set("002", {name: "Rajavithi Hospital", image: "/img/rajavithi.jpg"});
-    // mockCardRepo.set("003", {name: "Thammasat University Hospital", image: "/img/thammasat.jpg"});
-
-    return(
-        <main className="text-center p-5">
-            <h1 className="text-lg font-medium">CoWorkingSpace ID {params.cid}</h1>
-            <div className="flex flex-row my-5">
-                <Image src={coworkingspaceDetail.data.picture}
-                alt='CoWorkingSpace Image' width={0} height={0} sizes="100vw"
-                className="rounded-lg w-[30%]"/>
-                <div className="mx-5 text-left">
-                    <div className="text-3xl mx-5 font-md mb-5">{coworkingspaceDetail.data.name}</div>
-                    <div className="text-md mx-5">Address: {coworkingspaceDetail.data.address}</div>
-                    <div className="text-md mx-5">Tel: {coworkingspaceDetail.data.tel}</div>
-                </div>
-            </div>
-        </main>
-    );
+    // return(
+    //     <main className="text-center p-5">
+    //         <h1 className="text-lg font-medium">CoWorkingSpace ID {params.cid}</h1>
+    //         <div className="flex flex-row my-5">
+    //             <Image src={coworkingspaceDetail.image}
+    //             alt='CoWorkingSpace Image' width={0} height={0} sizes="100vw"
+    //             className="rounded-lg w-[30%]"/>
+    //             <div className="mx-5 text-left">
+    //                 <div className="text-3xl mx-5 font-md mb-5">{coworkingspaceDetail.name}</div>
+    //                 <div className="text-md mx-5">Address: {coworkingspaceDetail.address}</div>
+    //                 <div className="text-md mx-5">Tel: {coworkingspaceDetail.tel}</div>
+    //             </div>
+    //         </div>
+    //     </main>
+    // );
 }
 
 // export async function generateStaticParams() {

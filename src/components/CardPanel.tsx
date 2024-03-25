@@ -11,16 +11,10 @@ export default function CardPanel() {
     useEffect(()=>{
         const fetchData = async () => {
             const coworkingspace = await getCoWorkingSpaces()
-            setCoWorkingSpaceResponse(coworkingspace)
+            //setCoWorkingSpaceResponse(coworkingspace)
         }
         fetchData()
     }, [])
-
-    // const mockCardRepo = [
-    //     {cid: "001", name: "Chulalongkorn Hospital", image: "/img/chula.jpg"},
-    //     {cid: "002", name: "Rajavithi Hospital", image: "/img/rajavithi.jpg"},
-    //     {cid: "003", name: "Thammasat University Hospital", image: "/img/thammasat.jpg"}
-    // ]
 
     if(!coworkingspaceResponse) return (<p>Car Panel is Loading ...</p>)
 
