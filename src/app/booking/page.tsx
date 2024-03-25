@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { BookingItem } from "../../../interface";
 import { addBooking } from "@/redux/features/bookSlice";
+import createBooking from "@/libs/createBooking";
+import { create } from "domain";
 
 export default function Booking() {
 
@@ -29,7 +31,7 @@ export default function Booking() {
     const [lname, setLname] = useState<string>("")
     const [citizenid, setCitizenId] = useState<string>("")
     const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)
-    const [pickupLocation, setPickupLocation] = useState<string>('Chulalongkorn Hospital')
+    const [pickupLocation, setPickupLocation] = useState<string>('')
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-6">

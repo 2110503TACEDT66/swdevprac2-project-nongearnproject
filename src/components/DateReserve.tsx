@@ -38,7 +38,7 @@ export default function DateReserve({onDateChange, onLocationChange}
                 {
                 coworkingspaceResponse?
                 coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(                    
-                    <MenuItem value="{cardItem.name}">{cardItem.name}</MenuItem>
+                    <MenuItem value={cardItem.name}>{cardItem.name}</MenuItem>
                 )) : null
                 }
             </Select>

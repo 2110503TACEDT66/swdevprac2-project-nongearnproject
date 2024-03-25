@@ -26,11 +26,11 @@ export default function Banner() {
             </div>
 
             {
-                session ? <div className='z-30 absolute top-5 right-10
-                font-semibold text-cyan-800 text-xl'>
-                        Welcome {session.user?.name}
-                        </div>
-                        : null
+                // session ? <div className='z-30 absolute top-5 right-10
+                // font-semibold text-cyan-800 text-xl'>
+                //         Welcome {session.user?.name}
+                //         </div>
+                //         : null
             }
 
             <button className='bg-white text-cyan border border-cyan-600
