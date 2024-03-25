@@ -21,7 +21,7 @@ export default function Banner() {
             priority
             style={{objectFit:"cover"}}/>
             <div className='relative z-20 text-center top-24'>
-                <h1 className='text-4xl font-medium'>CoWorkingSpace Booking Center</h1>
+                <h1 className='text-4xl font-medium'>CoWorkingSpace Booking Centerr</h1>
                 <h2 className='text-xl font-serif'>Book CoWorkingSpace Now!!!</h2>
             </div>
 
