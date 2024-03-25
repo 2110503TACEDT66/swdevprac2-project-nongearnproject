@@ -11,7 +11,7 @@ export default function Banner() {
     const router = useRouter(); 
 
     const { data: session } = useSession()
-    console.log(session?.user.token)
+    console.log(session?.user.name)
 
     return (
         <div className='block p-1 m-0 w-screen relative h-[80vh]' onClick={()=>{setIndex(index + 1)}}>

@@ -2,29 +2,31 @@ import React from "react";
 import { TextField } from "@mui/material";
 import { dbConnect } from "@/db/dbConnect";
 import User from "@/db/models/User";
+import registerUser from "@/libs/registerUser";
 
 export default async function SignupPanel () {
 
     const register = async(registerForm:FormData) => {
         "use server"
-        const name = registerForm.get("userName")
-        const tel = registerForm.get("userTel")
-        const email = registerForm.get("userEmail")
-        const password = registerForm.get("userPassword")
+        const name = registerForm.get("userName") as string
+        const tel = registerForm.get("userTel") as string
+        const email = registerForm.get("userEmail") as string
+        const password = registerForm.get("userPassword") as string
         const countBooking = 0
         const createAt = Date.now()
 
         try {
-            await dbConnect()
-            const user = await User.create({
-                "name": name,
-                "tel": tel,
-                "email": email,
-                "password": password,
-                "role": "user",
-                "countBooking": countBooking,
-                "createAt": createAt
-            })
+            // await dbConnect()
+            // const user = await User.create({
+            //     "name": name,
+            //     "tel": tel,
+            //     "email": email,
+            //     "password": password,
+            //     "role": "user",
+            //     "countBooking": countBooking,
+            //     "createAt": createAt
+            // })
+            registerUser(name, email, password, tel)
         } catch(error) {
             console.log(error)
         }

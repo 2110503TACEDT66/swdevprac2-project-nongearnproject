@@ -1,5 +1,5 @@
-export default async function createBooking(token:string, bookDate:string) {
-    const response = await fetch(`https://presentation-day-1-nongearnproject-black.vercel.app/api/v1/bookings`, {
+export default async function createBooking(token:string, bookDate:string, coworkingSpaceId:string) {
+    const response = await fetch(`https://presentation-day-1-nongearnproject-black.vercel.app/api/v1/${coworkingSpaceId}/bookings`, {
         method: "POST",
         headers: {
             authorization: `Bearer ${token}`,
