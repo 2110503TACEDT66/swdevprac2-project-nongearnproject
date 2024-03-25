@@ -1,4 +1,4 @@
-export default async function getCoWorkingSpace(id:string) {
+export default async function getCoWorkingSpace(    id:string) {
     const response = await fetch(`https://swdevprac2-project-nongearnproject.vercel.app/api/coworkingspaces/${id}`)
     if(!response.ok) {
         throw new Error("Failed to fetch coworkingspace")
