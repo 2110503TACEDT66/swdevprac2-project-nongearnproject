@@ -1,8 +1,5 @@
-import bcrypt from 'bcryptjs';
-
-export default async function userLogIn(userEmail: string, userPassword: string) {
-    const hashedPassword = await bcrypt.hash(userPassword, 10); // Hash the password with bcrypt
-
+export default async function userLogIn(userEmail:string, userPassword:string) {
+    
     const response = await fetch("https://vaccine-app-backend.vercel.app:443/api/v1/auth/login", {
         method: "POST",
         headers: {
@@ -10,13 +7,12 @@ export default async function userLogIn(userEmail: string, userPassword: string)
         },
         body: JSON.stringify({
             email: userEmail,
-            password: hashedPassword // Send the hashed password to the server
+            password: userPassword
         }),
-    });
-
+    })
     if (!response.ok) {
-        throw new Error("Failed to log-in");
+        throw new Error("Failed to log-in")
     }
 
-    return await response.json();
+    return await response.json()
 }
