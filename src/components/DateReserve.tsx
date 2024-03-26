@@ -21,6 +21,8 @@ export default function DateReserve({onDateChange, onLocationChange}
         fetchData()
     }, [])
 
+
+
     const [reserveDate, setReserveDate] = useState<Dayjs|null>(null);
     const [location, setLocation] = useState('');
 
@@ -38,7 +40,7 @@ export default function DateReserve({onDateChange, onLocationChange}
                 {
                 coworkingspaceResponse?
                 coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(                    
-                    <MenuItem value={cardItem.name}>{cardItem.name}</MenuItem>
+                    <MenuItem key={cardItem.id} value={cardItem.id}>{cardItem.name}</MenuItem>
                 )) : null
                 }
             </Select>

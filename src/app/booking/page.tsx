@@ -9,29 +9,42 @@ import { BookingItem } from "../../../interface";
 import { addBooking } from "@/redux/features/bookSlice";
 import createBooking from "@/libs/createBooking";
 import { create } from "domain";
+import { useSession } from 'next-auth/react'
 
 export default function Booking() {
+
+    const { data: session } = useSession()
 
     const dispatch = useDispatch<AppDispatch>()
 
     const makeBooking = () => {
-        if(pickupDate) {
-            const item:BookingItem = {
-                name: fname,
-                surname: lname,
-                id: citizenid,
-                coworkingspace: pickupLocation,
-                bookDate: dayjs(pickupDate).format("YYYY/MM/DD")
-            }
-            dispatch(addBooking(item))
+        // if(bookDate) {
+        //     const item:BookingItem = {
+        //         name: fname,
+        //         surname: lname,
+        //         id: citizenid,
+        //         coworkingspace: bookLocation,
+        //         bookDate: dayjs(bookDate).format("YYYY/MM/DD")
+        //     }
+        //     dispatch(addBooking(item))
+        // }
+    }
+
+    const addBooking = async () => {
+        console.log(session?.user.token, bookDate?.toString(), bookLocation)
+        try {
+            if (bookDate && session)
+            await createBooking(session.user.token, bookDate?.toString(), bookLocation) 
+        } catch(err) {
+            console.log(err)
         }
     }
 
     const [fname, setFname] = useState<string>("")
     const [lname, setLname] = useState<string>("")
     const [citizenid, setCitizenId] = useState<string>("")
-    const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)
-    const [pickupLocation, setPickupLocation] = useState<string>('')
+    const [bookDate, setBookDate] = useState<Dayjs|null>(null)
+    const [bookLocation, setBookLocation] = useState<string>('')
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-6">
@@ -51,13 +64,13 @@ export default function Booking() {
 
             <div className="w-fit space-y-2">
                 <div className="text-md text-left text-gray-600">Booking Date and Location</div>
-                <DateReserve onDateChange={(value:Dayjs)=>{setPickupDate(value)}}
-                onLocationChange={(value:string)=>{setPickupLocation(value)}}/>
+                <DateReserve onDateChange={(value:Dayjs)=>{setBookDate(value)}}
+                onLocationChange={(value:string)=>{setBookLocation(value)}}/>
             </div>
 
             <button name="Book Vaccine" className="block rounded-md bg-sky-600 
             hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-            onClick={makeBooking}>
+            onClick={addBooking}>
                 Book CoWorkingSpace
             </button>
         </main>
