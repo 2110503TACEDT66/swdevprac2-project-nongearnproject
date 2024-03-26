@@ -19,8 +19,14 @@ export default async function TopMenu() {
                 </div>
             </div>
             <TopMenuItem title='Home' pageRef='/'/>
+            {
+                session && session.user.role == "admin" ?
+                <TopMenuItem title='Top1 User' pageRef='/Top1'/> 
+                : null
+            }
             <TopMenuItem title='Book Now' pageRef='/booking'/> 
             <TopMenuItem title='My Booking' pageRef='/mybooking'/>
+            
             
             <div className='flex flex-row absolute right-5 h-full items-center'> 
             {
