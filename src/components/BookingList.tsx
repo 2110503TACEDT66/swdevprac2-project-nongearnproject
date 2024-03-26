@@ -10,9 +10,9 @@ import Link from "next/link"
 import deleteBooking from "@/libs/deleteBooking"
 import { useRouter } from "next/navigation"
 import { revalidateTag } from "next/cache"
+import Swal from "sweetalert2"
 
 export default function BookingList() {
-    
     const { data: session } = useSession()
     const [bookResponse, setBookResponse] = useState<BookingJson | null>(null)
 
@@ -59,6 +59,11 @@ export default function BookingList() {
                                 if(comfirm) {
                                     const res = await deleteBooking(session?.user.token, bookingItem._id)
                                 }
+                                Swal.fire({
+                                    title: 'Delete Success',
+                                    icon: 'success',
+                                    confirmButtonText: 'OK'
+                                })
                                 }}>
                                 Delete
                             </button>
