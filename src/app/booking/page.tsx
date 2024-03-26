@@ -60,7 +60,12 @@ export default function Booking() {
                     Book CoWorkingSpace
                 </button>
             </Link>
-            
+                <button className='bg-white text-cyan border-2 border-cyan-600
+                    font-semibold py-2 px-4 m-4 rounded-lg z-50 fixed bottom-0 right-0
+                    hover:bg-cyan-600 hover:text-white hover:border-transparent'
+                    onClick={() => router.push('/')}>
+                        Home
+                </button>
         </main>
     );
 }
