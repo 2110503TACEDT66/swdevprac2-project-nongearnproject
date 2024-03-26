@@ -42,10 +42,15 @@ export default function Booking() {
                 onLocationChange={(value:string)=>{setBookLocation(value)}}/>
             </div>
 
-            <Link href={'/mybooking'}>
+            <Link href={
+                    (bookDate && bookLocation) ? '/mybooking' : '/booking'
+                }>
                 <button name="Book Vaccine" className="block rounded-md bg-sky-600 
                 hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-                onClick={addBooking}>
+                onClick={
+                    (bookDate && bookLocation) ?
+                    addBooking : ()=>{alert('Please select date and location')}
+                    }>
                     Book CoWorkingSpace
                 </button>
             </Link>
