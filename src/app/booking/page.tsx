@@ -1,18 +1,14 @@
 'use client'
 import DateReserve from "@/components/DateReserve";
-import { TextField } from "@mui/material";
 import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import { BookingItem } from "../../../interface";
-import { addBooking } from "@/redux/features/bookSlice";
 import createBooking from "@/libs/createBooking";
-import { create } from "domain";
 import { useSession } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { Suspense } from "react";
+import { CircularProgress } from "@mui/material";
 
 export default function Booking() {
 
@@ -34,14 +30,15 @@ export default function Booking() {
     const [bookLocation, setBookLocation] = useState<string>('')
 
     return (
+        
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-6">
-            <div className="text-6xl text-center">CoWorkingSpace Booking</div>
+            <div className="text-6xl text-center">CoWorkingSpace Booking</div>            
 
-            <div className="w-fit space-y-2">
-                <div className="text-md text-left text-gray-600">Booking Date and Location</div>
-                <DateReserve onDateChange={(value:Dayjs)=>{setBookDate(value)}}
-                onLocationChange={(value:string)=>{setBookLocation(value)}}/>
-            </div>
+                <div className="w-fit space-y-2">
+                    <div className="text-md text-left text-gray-600">Booking Date and Location</div>
+                    <DateReserve onDateChange={(value:Dayjs)=>{setBookDate(value)}}
+                    onLocationChange={(value:string)=>{setBookLocation(value)}}/>
+                </div>
 
             <Link href={
                     (bookDate && bookLocation) ? '/mybooking' : '/booking'

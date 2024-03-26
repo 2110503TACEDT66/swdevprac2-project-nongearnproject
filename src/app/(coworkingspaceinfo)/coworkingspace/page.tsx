@@ -1,6 +1,6 @@
 import getCoWorkingSpaces from "@/libs/getCoWorkingSpaces";
 import { Suspense } from "react";
-import { LinearProgress } from "@mui/material";
+import { LinearProgress, CircularProgress } from "@mui/material";
 import CoWorkingSpaceCatalog from "@/components/CoWorkingSpaceCatalog";
 
 export default function Car() {
