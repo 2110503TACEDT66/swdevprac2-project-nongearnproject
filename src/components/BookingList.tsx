@@ -13,11 +13,7 @@ import { revalidateTag } from "next/cache"
 
 export default function BookingList() {
     
-    // const bookItems = useAppSelector( (state)=>state.bookSlice.bookItems )
-    // const dispatch = useDispatch<AppDispatch>()
-
     const { data: session } = useSession()
-    const router = useRouter()
     const [bookResponse, setBookResponse] = useState<BookingJson | null>(null)
 
     useEffect(()=>{
@@ -29,7 +25,7 @@ export default function BookingList() {
             setBookResponse(booking)
         }
         fetchData()
-    }, [])
+    })
     return (
         <>
         {   
@@ -62,14 +58,12 @@ export default function BookingList() {
                                 const comfirm = confirm('Are you sure to delete?')
                                 if(comfirm) {
                                     const res = await deleteBooking(session?.user.token, bookingItem._id)
-                                    if(res.ok)router.push('/mybooking')
                                 }
                                 }}>
                                 Delete
                             </button>
                             : null
-                        }
-                            
+                        }    
                     </div>
                 </div>
             ))
