@@ -34,7 +34,7 @@ export default function BookingList() {
             text-center my-10 text-black">No CoWorkingSpace Booking</div>
             :
             bookResponse?.data.map((bookingItem:BookingItem)=>(
-                <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2"
+                <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-6"
                 key={bookingItem._id}>
                     <div className="text-md mt-2">booking_id: {bookingItem._id}</div>
                     <div className="text-md">bookDate: {new Date(bookingItem.bookDate).toString()}</div>
