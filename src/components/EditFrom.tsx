@@ -5,6 +5,7 @@ import { Dayjs } from "dayjs";
 import updateBooking from "@/libs/updateBooking";
 import { useSession } from 'next-auth/react'
 import Link from "next/link";
+import Swal from "sweetalert2";
 
 export default function EditFrom({id,book_date,username,coworkingspaceId,createdAt}: any) {
 
@@ -16,7 +17,13 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
         console.log(session?.user.token, bookDate?.toString(), id)
         try {
             if (bookDate)
-            await updateBooking(session.user.token, bookDate.toString(), id) 
+            await updateBooking(session.user.token, bookDate.toString(), id)
+            Swal.fire({
+                title: 'Success',
+                text: 'Update Booking Success',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
         } catch(err) {
             console.log(err)
         }

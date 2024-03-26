@@ -60,7 +60,8 @@ export default function BookingList() {
                                     const res = await deleteBooking(session?.user.token, bookingItem._id)
                                 }
                                 Swal.fire({
-                                    title: 'Delete Success',
+                                    title: 'Success',
+                                    text: 'Delete Booking Success',
                                     icon: 'success',
                                     confirmButtonText: 'OK'
                                 })
