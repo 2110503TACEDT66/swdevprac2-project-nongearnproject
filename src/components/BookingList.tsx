@@ -35,15 +35,15 @@ export default function BookingList() {
             bookResponse?.data.map((bookingItem:BookingItem)=>(
                 <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-6" key={bookingItem._id}>
                     <div className="mt-2">
-                        <span className="text-2xl font-bold">booking_id:</span> 
+                        <span className="text-xl font-bold">booking_id:</span> 
                         <span className="text-lg"> {bookingItem._id}</span>
                     </div>
                     <div>
-                        <span className="text-2xl font-bold">bookDate:</span>
+                        <span className="text-xl font-bold">bookDate:</span>
                         <span className="text-lg"> {new Date(bookingItem.bookDate).toString()}</span>
                     </div>
                     <div>
-                        <span className="text-2xl font-bold">coworkingspace:</span>
+                        <span className="text-xl font-bold">coworkingspace:</span>
                     </div>
                     <div className="ml-4">
                         <span className="text-xl font-bold">_id:</span>
@@ -62,7 +62,7 @@ export default function BookingList() {
                         <span className="text-md"> {bookingItem.coworkingspace.tel}</span>
                     </div>
                     <div>
-                        <span className="text-2xl font-bold">createdAt:</span>
+                        <span className="text-xl font-bold">createdAt:</span>
                         <span className="text-lg"> {new Date(bookingItem.createdAt).toString()}</span>
                     </div>
                     
