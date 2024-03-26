@@ -9,12 +9,16 @@ export default async function TopMenu() {
     const session = await getServerSession(authOptions)
 
     return (
-        <div className='h-14 bg-white fixed top-0 left-0 right-0 z-30 
-        flex flex-row border-t-2 border-t-grey-400 border-t-solid border-b-2 border-b-grey-400 border-b-solid'>
-            <Image src={'/img/logo.jpg'} className='h-full w-auto' 
-            alt='logo' width={0} height={0} sizes='100vh' />
+        <div className='h-14 bg-transparent fixed top-8 left-8 right-8 z-30 
+        flex flex-row'>
+            <div className='flex flex-row space-x-4'>
+                <Image src={'/img/logo.png'} className='h-full w-auto' 
+                alt='logo' width={0} height={0} sizes='100vh' />
+                <div className='text-xl'>
+                    CoWorkingSpace<br></br>Booking Center
+                </div>
+            </div>
             <TopMenuItem title='Home' pageRef='/'/>
-            <TopMenuItem title='Menu Item Booking' pageRef='/booking'/>
             <TopMenuItem title='My Booking' pageRef='/mybooking'/>
             <TopMenuItem title='Book Now' pageRef='/booking'/> 
             <div className='flex flex-row absolute right-5 h-full'> 
