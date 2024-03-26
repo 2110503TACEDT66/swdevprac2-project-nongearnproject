@@ -23,16 +23,16 @@ export default async function TopMenu() {
             <TopMenuItem title='Book Now' pageRef='/booking'/> 
             <div className='flex flex-row absolute right-5 h-full'> 
             {
-                session ? <Link href="/api/auth/signout" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-cyan-600 w-28 
+                session ? <Link href="/api/auth/signout" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-indigo-600 w-28 
                 text-center justify-center'>
-                    <div className='text-cyan-600'>Sign-Out</div>
+                    <div className='text-indigo-600'>Sign-Out</div>
                 </Link>
                 :
                 <div className='flex flex-row space-x-6'>
-                    <Link href="/signup" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-cyan-600 w-28 text-center justify-center'>
-                        <div className='text-cyan-600'>Sign-Up</div>                    
+                    <Link href="/signup" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-indigo-600 w-28 text-center justify-center'>
+                        <div className='text-indigo-600'>Sign-Up</div>                    
                     </Link>
-                    <Link href="/api/auth/signin" style={{textDecoration:'none', fontSize:'20px' }} className='flex items-center h-14 px-2 border-2 rounded-lg border-cyan-600 bg-cyan-600 w-28 
+                    <Link href="/api/auth/signin" style={{textDecoration:'none', fontSize:'20px' }} className='flex items-center h-14 px-2 border-2 rounded-lg border-indigo-600 bg-indigo-600 w-28 
                     text-center justify-center'>
                         <div className='text-white'>Sign-In</div>  
                     </Link>                    

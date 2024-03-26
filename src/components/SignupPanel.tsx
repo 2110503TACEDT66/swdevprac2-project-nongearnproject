@@ -43,8 +43,8 @@ export default async function SignupPanel () {
                 placeholder="Email@XXX.com"/>
             <TextField id="userPassword" name="userPassword" label="userPassword" className="bg-white rounded-md" required 
                 placeholder="password"/>
-            <button type="submit" className="block rounded-md bg-cyan-400 
-                hover:bg-cyan-700 px-3 py-2 text-white shadow-md">Sign-up</button>
+            <button type="submit" className="block rounded-md bg-indigo-400 
+                hover:bg-indigo-700 px-3 py-2 text-white shadow-md">Sign-up</button>
             </div>
         </form>
     );

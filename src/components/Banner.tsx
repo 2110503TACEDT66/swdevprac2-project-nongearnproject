@@ -18,9 +18,9 @@ export default function Banner() {
             style={{objectFit:"cover"}}
             className='opacity-50'/>
 
-            <button className='bg-white text-cyan border-2 border-cyan-600
+            <button className='bg-white text-indigo border-2 border-indigo-600
             font-semibold py-2 px-2 m-2 rounded-lg z-20 absolute bottom-0 right-0
-            hover:bg-cyan-600 hover:text-white hover:border-transpasrent'
+            hover:bg-indigo-600 hover:text-white hover:border-transpasrent'
             onClick={(e)=>{e.stopPropagation(); router.push('/coworkingspace')}}>
                 Select CoWorkingSpace
             </button>
