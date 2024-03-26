@@ -10,8 +10,11 @@ import { addBooking } from "@/redux/features/bookSlice";
 import createBooking from "@/libs/createBooking";
 import { create } from "domain";
 import { useSession } from 'next-auth/react'
+import { useRouter } from "next/navigation";
 
 export default function Booking() {
+
+    const router = useRouter()
 
     const { data: session } = useSession()
 
@@ -40,7 +43,7 @@ export default function Booking() {
 
             <button name="Book Vaccine" className="block rounded-md bg-sky-600 
             hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-            onClick={addBooking}>
+            onClick={()=>{addBooking; router.push('/mybooking')}}>
                 Book CoWorkingSpace
             </button>
         </main>

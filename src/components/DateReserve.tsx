@@ -8,8 +8,8 @@ import { Dayjs } from "dayjs";
 import getCoWorkingSpaces from "@/libs/getCoWorkingSpaces";
 import { CoWorkingSpaceJson, CoWorkingSpaceItem } from "../../interface";
 
-export default function DateReserve({onDateChange, onLocationChange,defaultLocate, defaultDate}
-    :{onDateChange:Function, onLocationChange:Function, defaultLocate?:string, defaultDate?:Dayjs}) {
+export default function DateReserve({onDateChange, onLocationChange, defaultLocate, defaultDate, Editpage}
+    :{onDateChange:Function, onLocationChange:Function, defaultLocate?:string, defaultDate?:Dayjs, Editpage?:boolean}) {
     
     const [coworkingspaceResponse, setCoWorkingSpaceResponse] = useState<CoWorkingSpaceJson | null>(null)
 
@@ -34,16 +34,20 @@ export default function DateReserve({onDateChange, onLocationChange,defaultLocat
                 value={reserveDate} onChange={(value)=>{setReserveDate(value); onDateChange(value)}}/>
             </LocalizationProvider>
 
-            <Select variant="standard" id="hospital" value={location}
-            onChange={(e)=>{setLocation(e.target.value); onLocationChange(e.target.value)}}
-            className="h-[2em] w-[200px]">
-                {
-                coworkingspaceResponse?
-                coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(                    
-                    <MenuItem key={cardItem.id} value={cardItem.id}>{cardItem.name}</MenuItem>
-                )) : null
-                }
-            </Select>
+            {
+                Editpage != true ?
+                <Select variant="standard" id="hospital" value={location}
+                    onChange={(e)=>{setLocation(e.target.value); onLocationChange(e.target.value)}}
+                    className="h-[2em] w-[200px]">
+                    {
+                        coworkingspaceResponse?
+                        coworkingspaceResponse.data.map((cardItem:CoWorkingSpaceItem)=>(                    
+                            <MenuItem key={cardItem.id} value={cardItem.id}>{cardItem.name}</MenuItem>
+                        )) 
+                        : null
+                    }
+                </Select> : null
+            }
         </div>
     );
 }
