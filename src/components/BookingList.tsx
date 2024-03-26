@@ -46,25 +46,25 @@ export default function BookingList() {
                     
                     <div className="flex flex-row space-x-4">
                         <Link href={`/editBooking/${bookingItem._id}`}>
-                            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                            <button className="block rounded-md bg-sky-600 hover:bg-sky-700 px-3 py-2
                             text-white shadow-sm my-4">
                                 Edit
                             </button>                       
                         </Link>
                         {
                             session?
-                            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                            <button className="block rounded-md bg-red-600 hover:bg-red-700 px-3 py-2
                             text-white shadow-sm my-4" onClick={async ()=>{
                                 const comfirm = confirm('Are you sure to delete?')
                                 if(comfirm) {
                                     const res = await deleteBooking(session?.user.token, bookingItem._id)
-                                }
-                                Swal.fire({
+                                    Swal.fire({
                                     title: 'Success',
                                     text: 'Delete Booking Success',
                                     icon: 'success',
                                     confirmButtonText: 'OK'
-                                })
+                                    })
+                                } 
                                 }}>
                                 Delete
                             </button>
