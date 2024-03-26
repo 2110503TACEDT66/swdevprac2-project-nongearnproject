@@ -35,10 +35,10 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
 
     return (
             <div className="flex flex-col">
-                <h1 className="font-bold py-10 text-2xl text-center">
-                    Update Booking {username}
+                <h1 className="font-bold py-10 text-3xl text-center text-indigo-600">
+                    Update Booking
                 </h1>
-                <div className="w-[100%] flex flex-col items-center space-y-4 mt-6">
+                <div className="w-[100%] flex flex-col items-center space-y-4 ">
                     <div className="w-fit space-y-2">
                         <div className="text-md text-left text-gray-600">Booking Date and Location</div>
                         <DateReserve onDateChange={(value:Dayjs)=>{setBookDate(value)}}
@@ -47,7 +47,7 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
                     </div>
 
                     <Link href={'/mybooking'}>
-                        <button name="Book Vaccine" className="block rounded-md bg-sky-600 
+                        <button name="Book Vaccine" className="block rounded-md bg-indigo-600 
                         hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
                         onClick={handleSubmit}>
                             Update Booking

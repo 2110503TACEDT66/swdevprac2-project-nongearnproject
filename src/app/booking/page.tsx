@@ -32,7 +32,7 @@ export default function Booking() {
     return (
         
         <main className="w-[100%] flex flex-col items-center space-y-8 mt-6">
-            <div className="text-5xl text-center font-bold text-indigo-700">Book Your CoWorkingSpace</div>            
+            <div className="text-4xl text-center font-bold text-indigo-700">Book Your CoWorkingSpace</div>            
 
             <div className="w-full max-w-md space-y-4 p-4 bg-gray-100 rounded-lg">
                 <div className="text-lg text-gray-800 font-semibold">Choose Booking Date and Location</div>
