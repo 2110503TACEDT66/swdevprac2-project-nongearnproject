@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Dayjs } from "dayjs";
 import updateBooking from "@/libs/updateBooking";
 import { useSession } from 'next-auth/react'
+import Link from "next/link";
 
 export default function EditFrom({id,book_date,username,coworkingspaceId,createdAt}: any) {
 
@@ -38,11 +39,13 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
                         />
                     </div>
 
-                    <button name="Book Vaccine" className="block rounded-md bg-sky-600 
-                    hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-                    onClick={handleSubmit}>
-                        Update Booking
-                    </button>
+                    <Link href={'/mybooking'}>
+                        <button name="Book Vaccine" className="block rounded-md bg-sky-600 
+                        hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
+                        onClick={handleSubmit}>
+                            Update Booking
+                        </button>
+                    </Link> 
                 </div>
             </div>
     );
