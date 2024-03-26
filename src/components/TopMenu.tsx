@@ -10,7 +10,7 @@ export default async function TopMenu() {
 
     return (
         <div className='h-16 bg-white fixed top-0 left-0 right-0 z-30
-        flex flex-row p-1 border'>
+        flex flex-row border'>
             <div className='flex flex-row space-x-4'>
                 <Image src={'/img/logo.png'} className='h-full w-auto' 
                 alt='logo' width={0} height={0} sizes='100vh' />
@@ -22,18 +22,19 @@ export default async function TopMenu() {
             <TopMenuItem title='Book Now' pageRef='/booking'/> 
             <TopMenuItem title='My Booking' pageRef='/mybooking'/>
             
-            <div className='flex flex-row absolute right-5 h-full'> 
+            <div className='flex flex-row absolute right-5 h-full items-center'> 
             {
-                session ? <Link href="/api/auth/signout" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-indigo-600 w-28 
+                session ? 
+                <Link href="/api/auth/signout" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-10 border-2 rounded-lg border-indigo-600 w-28 shadow-lg
                 text-center justify-center'>
                     <div className='text-indigo-600'>Sign-Out</div>
                 </Link>
                 :
                 <div className='flex flex-row space-x-6'>
-                    <Link href="/signup" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-indigo-600 w-28 text-center justify-center'>
+                    <Link href="/signup" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-10 border-2 rounded-lg border-indigo-600 w-28 text-center shadow-lg justify-center'>
                         <div className='text-indigo-600'>Sign-Up</div>                    
                     </Link>
-                    <Link href="/api/auth/signin" style={{textDecoration:'none', fontSize:'20px' }} className='flex items-center h-14 px-2 border-2 rounded-lg border-indigo-600 bg-indigo-600 w-28 
+                    <Link href="/api/auth/signin" style={{textDecoration:'none', fontSize:'20px' }} className='flex items-center h-10 px-2 border-2 rounded-lg border-indigo-600 shadow-lg bg-indigo-600 w-28 
                     text-center justify-center'>
                         <div className='text-white'>Sign-In</div>  
                     </Link>                    
