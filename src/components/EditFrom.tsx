@@ -6,6 +6,8 @@ import updateBooking from "@/libs/updateBooking";
 import { useSession } from 'next-auth/react'
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { Suspense } from "react";
+import { CircularProgress } from "@mui/material";
 
 export default function EditFrom({id,book_date,username,coworkingspaceId,createdAt}: any) {
 
@@ -32,12 +34,10 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
     const [bookLocation, setBookLocation] = useState<string>('')
 
     return (
-            <div>
-                <div className="flex justify-between item-center">
-                    <h1 className="font-bold py-10 text-2xl">
-                        Update Booking {id}
-                    </h1>
-                </div>
+            <div className="flex flex-col">
+                <h1 className="font-bold py-10 text-2xl text-center">
+                    Update Booking {username}
+                </h1>
                 <div className="w-[100%] flex flex-col items-center space-y-4 mt-6">
                     <div className="w-fit space-y-2">
                         <div className="text-md text-left text-gray-600">Booking Date and Location</div>
