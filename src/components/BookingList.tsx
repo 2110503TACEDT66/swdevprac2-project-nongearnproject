@@ -30,7 +30,6 @@ export default function BookingList() {
         }
         fetchData()
     }, [])
-
     return (
         <>
         {   
@@ -59,8 +58,13 @@ export default function BookingList() {
                         {
                             session?
                             <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                            text-white shadow-sm my-4" onClick={()=>{deleteBooking(session?.user.token,bookingItem._id).then(()=>{router.refresh()})
-                            }}>
+                            text-white shadow-sm my-4" onClick={async ()=>{
+                                const comfirm = confirm('Are you sure to delete?')
+                                if(comfirm) {
+                                    const res = await deleteBooking(session?.user.token, bookingItem._id)
+                                    if(res.ok)router.push('/mybooking')
+                                }
+                                }}>
                                 Delete
                             </button>
                             : null
