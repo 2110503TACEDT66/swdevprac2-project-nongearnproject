@@ -30,7 +30,7 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
             console.log(err)
         }
     }
-    const [bookDate, setBookDate] = useState<Dayjs|undefined>(book_date)
+    const [bookDate, setBookDate] = useState<Dayjs|undefined>()
     const [bookLocation, setBookLocation] = useState<string>('')
 
     return (
@@ -47,9 +47,17 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
                     </div>
 
                     <Link href={'/mybooking'}>
-                        <button name="Book Vaccine" className="block rounded-md bg-indigo-600 
-                        hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-                        onClick={handleSubmit}>
+                        <button name="Book Vaccine" className={`block rounded-md bg-indigo-600 
+                        hover:bg-indigo-600 px-3 py-2 text-white shadow-sm ${bookDate == undefined && 'opacity-50 cursor-not-allowed'}`}
+                        onClick={
+                            (bookDate && bookLocation) ?
+                            handleSubmit : ()=>{Swal.fire({
+                                title: 'Warning',
+                                text: 'Please fill in all fields',
+                                icon: 'warning',
+                                confirmButtonText: 'OK'
+                            })}
+                            }>
                             Update Booking
                         </button>
                     </Link> 
