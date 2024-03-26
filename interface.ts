@@ -49,3 +49,19 @@ export interface UserJson {
     __v: number
   }
 }
+
+export interface TopOneItem {
+  _id: string,
+  name: string,
+  email: string,
+  tel: string,
+  role: string,
+  countBooking: number,
+  createdAt: string,
+  __v: number
+}
+
+export interface TopOneJson {
+  success: boolean,
+  data: TopOneItem[]
+}
