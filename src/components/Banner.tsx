@@ -10,9 +10,6 @@ export default function Banner() {
 
     const router = useRouter(); 
 
-    const { data: session } = useSession()
-    console.log(session)
-
     return (
         <div className='block p-1 m-0 w-screen relative h-[80vh]' onClick={()=>{setIndex(index + 1)}}>
             <Image src={covers[index%4]}
