@@ -4,11 +4,8 @@ import { useState } from "react";
 import { Dayjs } from "dayjs";
 import updateBooking from "@/libs/updateBooking";
 import { useSession } from 'next-auth/react'
-import { useRouter } from "next/navigation";
 
 export default function EditFrom({id,book_date,username,coworkingspaceId,createdAt}: any) {
-
-    const router = useRouter()
 
     const { data: session } = useSession()
     if(!session){  
@@ -43,7 +40,7 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
 
                     <button name="Book Vaccine" className="block rounded-md bg-sky-600 
                     hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
-                    onClick={()=>{handleSubmit(); router.push('/mybooking')}}>
+                    onClick={handleSubmit}>
                         Update Booking
                     </button>
                 </div>
