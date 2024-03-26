@@ -19,7 +19,7 @@ export default function CardPanel() {
     if(!coworkingspaceResponse) return (<p>Card Panel is Loading ...</p>)
 
     return (
-        <div>
+        <div className="w-full">
             <div style={{margin:"20px", display:"flex", flexDirection:"row",
             flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
                 {

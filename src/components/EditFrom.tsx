@@ -40,17 +40,17 @@ export default function EditFrom({id,book_date,username,coworkingspaceId,created
                 </h1>
                 <div className="w-[100%] flex flex-col items-center space-y-4 ">
                     <div className="w-fit space-y-2">
-                        <div className="text-md text-left text-gray-600">Booking Date and Location</div>
+                        <div className="text-md text-left text-gray-600">Booking Date</div>
                         <DateReserve onDateChange={(value:Dayjs)=>{setBookDate(value)}}
                         onLocationChange={(value:string)=>{setBookLocation(value)}} Editpage={true}
                         />
                     </div>
 
-                    <Link href={'/mybooking'}>
+                    <Link href={bookDate || bookLocation ? '/mybooking' : `/editBooking/${id}`}>
                         <button name="Book Vaccine" className={`block rounded-md bg-indigo-600 
                         hover:bg-indigo-600 px-3 py-2 text-white shadow-sm ${bookDate == undefined && 'opacity-50 cursor-not-allowed'}`}
                         onClick={
-                            (bookDate && bookLocation) ?
+                            (bookDate || bookLocation) ?
                             handleSubmit : ()=>{Swal.fire({
                                 title: 'Warning',
                                 text: 'Please fill in all fields',
