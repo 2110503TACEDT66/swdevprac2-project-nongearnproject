@@ -12,7 +12,7 @@ export default function PromoteCard() {
 
     return (
         <div className="w-[80%] shadow-lg mx-[10%] my-10 p-2 
-        rounded-lg bg=gray-200 flex flex-row">
+        rounded-3xl bg=gray-200 flex flex-row">
             <VideoPlayer vdoSrc="/vdo/bookcoworkingspace.mp4" onPlayPause={setPlaying}
             isPlaying={playing}></VideoPlayer>
             <div className="m-5 relative">

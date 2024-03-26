@@ -16,7 +16,7 @@ export default function VideoPlayer({vdoSrc, isPlaying, onPlayPause} :
     }, [isPlaying])
 
     return (
-        <video className="w-[40%]" src={vdoSrc} ref={vdoRef} controls loop muted
+        <video className="w-[40%] rounded-3xl" src={vdoSrc} ref={vdoRef} controls loop muted
         onPlay={()=>{onPlayPause(true)}} onPause={()=>{onPlayPause(false)}}/>
     )
 }

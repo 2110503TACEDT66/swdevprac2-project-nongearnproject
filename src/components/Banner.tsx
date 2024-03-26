@@ -24,16 +24,15 @@ export default function Banner() {
             className='opacity-50'/>
             <div className='relative z-20 text-center top-24'>
                 <h1 className='text-4xl font-medium'>CoWorkingSpace Booking Center</h1>
-                <h2 className='text-xl font-serif'>Book CoWorkingSpace Now!!!</h2>
             </div>
 
-            {
+            {/* {
                 session ? <div className='z-20 absolute top-5 right-10
                 font-semibold text-stone-700 text-xl'>
                         Welcome {session.user.name}
                         </div>
                         : null
-            }
+            } */}
 
             <button className='bg-white text-cyan border-2 border-cyan-600
             font-semibold py-2 px-2 m-2 rounded-lg z-20 absolute bottom-0 right-0
