@@ -7,6 +7,9 @@ import { useState, useEffect } from "react"
 import getBookings from "@/libs/getBookings"
 import { useSession } from 'next-auth/react'
 import Link from "next/link"
+import deleteBooking from "@/libs/deleteBooking"
+import { useRouter } from "next/navigation"
+import { revalidateTag } from "next/cache"
 
 export default function BookingList() {
     
@@ -14,7 +17,7 @@ export default function BookingList() {
     // const dispatch = useDispatch<AppDispatch>()
 
     const { data: session } = useSession()
-
+    const router = useRouter()
     const [bookResponse, setBookResponse] = useState<BookingJson | null>(null)
 
     useEffect(()=>{
@@ -53,12 +56,16 @@ export default function BookingList() {
                                 Edit
                             </button>                       
                         </Link>
-                        {/* <Link >
+                        {
+                            session?
                             <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                            text-white shadow-sm my-4">
+                            text-white shadow-sm my-4" onClick={()=>{deleteBooking(session?.user.token,bookingItem._id).then(()=>{router.refresh()})
+                            }}>
                                 Delete
-                            </button>                       
-                        </Link> */}
+                            </button>
+                            : null
+                        }
+                            
                     </div>
                 </div>
             ))
