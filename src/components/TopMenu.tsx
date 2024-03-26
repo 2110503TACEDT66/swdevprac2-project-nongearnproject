@@ -13,6 +13,7 @@ export default async function TopMenu() {
         flex flex-row border-t-2 border-t-grey-400 border-t-solid border-b-2 border-b-grey-400 border-b-solid'>
             <Image src={'/img/logo.jpg'} className='h-full w-auto' 
             alt='logo' width={0} height={0} sizes='100vh' />
+            <TopMenuItem title='Home' pageRef='/'/>
             <TopMenuItem title='Menu Item Booking' pageRef='/booking'/>
             <TopMenuItem title='My Booking' pageRef='/mybooking'/>
             <div className='flex flex-row absolute right-5 h-full'> 
