@@ -35,14 +35,14 @@ export default function BookingList() {
             bookResponse?.data.map((bookingItem:BookingItem)=>(
                 <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-6"
                 key={bookingItem._id}>
-                    <div className="text-md mt-2">booking_id: {bookingItem._id}</div>
-                    <div className="text-md">bookDate: {new Date(bookingItem.bookDate).toString()}</div>
-                    <div className="text-md">coworkingspace: </div>
-                    <div className="text-md ml-4">_id: {bookingItem.coworkingspace._id}</div>
-                    <div className="text-md ml-4">name: {bookingItem.coworkingspace.name}</div>
-                    <div className="text-md ml-4">address: {bookingItem.coworkingspace.address}</div>
-                    <div className="text-md ml-4">tel: {bookingItem.coworkingspace.tel}</div>
-                    <div className="text-md">createdAt: {new Date(bookingItem.createdAt).toString()}</div>
+                    <div className="headerText mt-2">booking_id: {bookingItem._id}</div>
+                    <div className="headerText">bookDate: {new Date(bookingItem.bookDate).toString()}</div>
+                    <div className="headerText">coworkingspace: </div>
+                    <div className="headerText ml-4">_id: {bookingItem.coworkingspace._id}</div>
+                    <div className="headerText ml-4">name: {bookingItem.coworkingspace.name}</div>
+                    <div className="headerText ml-4">address: {bookingItem.coworkingspace.address}</div>
+                    <div className="headerText ml-4">tel: {bookingItem.coworkingspace.tel}</div>
+                    <div className="headerText">createdAt: {new Date(bookingItem.createdAt).toString()}</div>
                     
                     <div className="flex flex-row space-x-4">
                         <Link href={`/editBooking/${bookingItem._id}`}>
