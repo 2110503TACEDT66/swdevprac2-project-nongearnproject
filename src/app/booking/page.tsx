@@ -7,11 +7,14 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import CoWorkingSpaceCatalog from "@/components/CoWorkingSpaceCatalog";
+import getCoWorkingSpaces from "@/libs/getCoWorkingSpaces";
 import { Suspense } from "react";
-import { CircularProgress } from "@mui/material";
+import { LinearProgress, CircularProgress } from "@mui/material";
+import CardPanel from "@/components/CardPanel";
 
 export default function Booking() {
-
+    const coworkingspaces = getCoWorkingSpaces()
     const router = useRouter()
 
     const { data: session } = useSession()
@@ -58,6 +61,7 @@ export default function Booking() {
                     Book CoWorkingSpace
                 </button>
             </Link>
+            <CardPanel/>
         </main>
     );
 }
