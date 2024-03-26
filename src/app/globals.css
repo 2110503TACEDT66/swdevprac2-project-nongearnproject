@@ -89,6 +89,7 @@ body {
 }
 
 body {
+  margin-top: 50px;
   color: rgb(var(--foreground-rgb));
 }
 

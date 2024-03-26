@@ -9,8 +9,8 @@ export default async function TopMenu() {
     const session = await getServerSession(authOptions)
 
     return (
-        <div className='h-14 bg-transparent fixed top-8 left-8 right-8 z-30 
-        flex flex-row'>
+        <div className='h-16 bg-white fixed top-0 left-0 right-0 z-30
+        flex flex-row p-1 border'>
             <div className='flex flex-row space-x-4'>
                 <Image src={'/img/logo.png'} className='h-full w-auto' 
                 alt='logo' width={0} height={0} sizes='100vh' />
@@ -23,17 +23,16 @@ export default async function TopMenu() {
             <TopMenuItem title='Book Now' pageRef='/booking'/> 
             <div className='flex flex-row absolute right-5 h-full'> 
             {
-                session ? <Link href="/api/auth/signout">
-                    <div className='flex items-center h-full px-2 text-black text-md'>
-                        Sign-Out
-                    </div>
+                session ? <Link href="/api/auth/signout" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-cyan-600 w-28 
+                text-center justify-center'>
+                    <div className='text-cyan-600'>Sign-Out</div>
                 </Link>
                 :
                 <div className='flex flex-row space-x-6'>
-                    <Link href="/signup" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-full border-2 rounded-lg border-cyan-600 w-28 text-center justify-center'>
+                    <Link href="/signup" style={{textDecoration:'none', fontSize:'20px'}} className='flex items-center h-14 border-2 rounded-lg border-cyan-600 w-28 text-center justify-center'>
                         <div className='text-cyan-600'>Sign-Up</div>                    
                     </Link>
-                    <Link href="/api/auth/signin" style={{textDecoration:'none', fontSize:'20px' }} className='flex items-center h-full px-2 border-2 rounded-lg border-cyan-600 bg-cyan-600 w-28 
+                    <Link href="/api/auth/signin" style={{textDecoration:'none', fontSize:'20px' }} className='flex items-center h-14 px-2 border-2 rounded-lg border-cyan-600 bg-cyan-600 w-28 
                     text-center justify-center'>
                         <div className='text-white'>Sign-In</div>  
                     </Link>                    
