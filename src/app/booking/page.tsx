@@ -12,6 +12,7 @@ import { create } from "domain";
 import { useSession } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Swal from "sweetalert2";
 
 export default function Booking() {
 
@@ -49,7 +50,12 @@ export default function Booking() {
                 hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
                 onClick={
                     (bookDate && bookLocation) ?
-                    addBooking : ()=>{alert('Please select date and location')}
+                    addBooking : ()=>{Swal.fire({
+                        title: 'Warning',
+                        text: 'Please fill in all fields',
+                        icon: 'warning',
+                        confirmButtonText: 'OK'
+                    })}
                     }>
                     Book CoWorkingSpace
                 </button>
