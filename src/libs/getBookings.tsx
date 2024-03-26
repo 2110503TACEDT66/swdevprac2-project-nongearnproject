@@ -8,7 +8,7 @@ export default async function getBookings(token:string) {
     })
 
     if(!response.ok) {
-        throw new Error("Cannot get Booking")
+        throw new Error("Cannot get Bookings")
     }
 
     const responseData = await response.json();

@@ -8,8 +8,8 @@ import { Dayjs } from "dayjs";
 import getCoWorkingSpaces from "@/libs/getCoWorkingSpaces";
 import { CoWorkingSpaceJson, CoWorkingSpaceItem } from "../../interface";
 
-export default function DateReserve({onDateChange, onLocationChange}
-    :{onDateChange:Function, onLocationChange:Function}) {
+export default function DateReserve({onDateChange, onLocationChange,defaultLocate, defaultDate}
+    :{onDateChange:Function, onLocationChange:Function, defaultLocate?:string, defaultDate?:Dayjs}) {
     
     const [coworkingspaceResponse, setCoWorkingSpaceResponse] = useState<CoWorkingSpaceJson | null>(null)
 
@@ -23,8 +23,8 @@ export default function DateReserve({onDateChange, onLocationChange}
 
 
 
-    const [reserveDate, setReserveDate] = useState<Dayjs|null>(null);
-    const [location, setLocation] = useState('');
+    const [reserveDate, setReserveDate] = useState<Dayjs|null|undefined>(defaultDate);
+    const [location, setLocation] = useState(defaultLocate);
 
     return (
         <div className="bg-slate-100 rounded-lg space-x-5 space-y-2

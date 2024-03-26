@@ -12,7 +12,7 @@ export default function Banner() {
     const router = useRouter(); 
 
     const { data: session } = useSession()
-    console.log(session?.user.name)
+    // console.log(session?.user.name)
 
     return (
         <div className='block p-1 m-0 w-screen relative h-[80vh]' onClick={()=>{setIndex(index + 1)}}>
@@ -28,15 +28,15 @@ export default function Banner() {
             </div>
 
             {
-                session ? <div className='z-30 absolute top-5 right-10
-                font-semibold text-cyan-800 text-xl'>
+                session ? <div className='z-20 absolute top-5 right-10
+                font-semibold text-stone-700 text-xl'>
                         Welcome {session.user.name}
                         </div>
                         : null
             }
 
             <button className='bg-white text-cyan border-2 border-cyan-600
-            font-semibold py-2 px-2 m-2 rounded-lg z-30 absolute bottom-0 right-0
+            font-semibold py-2 px-2 m-2 rounded-lg z-20 absolute bottom-0 right-0
             hover:bg-cyan-600 hover:text-white hover:border-transpasrent'
             onClick={(e)=>{e.stopPropagation(); router.push('/coworkingspace')}}>
                 Select CoWorkingSpace

@@ -16,7 +16,7 @@ export default function PromoteCard() {
             <VideoPlayer vdoSrc="/vdo/bookcoworkingspace.mp4" onPlayPause={setPlaying}
             isPlaying={playing}></VideoPlayer>
             <div className="m-5 relative">
-                <div className="text-xl">Office of Academic Resources</div>
+                <div className="text-xl  font-bold">Office of Academic Resources</div>
                 Recommended for students at Chulalongkorn University
                 <br></br>
                 <button className="absolute bottom-0 left-0 rounded-md 

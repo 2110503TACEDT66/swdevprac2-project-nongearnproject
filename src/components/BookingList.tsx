@@ -6,6 +6,7 @@ import { BookingItem, BookingJson } from "../../interface"
 import { useState, useEffect } from "react"
 import getBookings from "@/libs/getBookings"
 import { useSession } from 'next-auth/react'
+import Link from "next/link"
 
 export default function BookingList() {
     
@@ -46,14 +47,18 @@ export default function BookingList() {
                     <div className="text-md">createdAt: {new Date(bookingItem.createdAt).toString()}</div>
                     
                     <div className="flex flex-row space-x-4">
-                        <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                        text-white shadow-sm my-4">
-                            Edit
-                        </button>
-                        <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                        text-white shadow-sm my-4">
-                            Delete
-                        </button>
+                        <Link href={`/editBooking/${bookingItem._id}`}>
+                            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                            text-white shadow-sm my-4">
+                                Edit
+                            </button>                       
+                        </Link>
+                        {/* <Link >
+                            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                            text-white shadow-sm my-4">
+                                Delete
+                            </button>                       
+                        </Link> */}
                     </div>
                 </div>
             ))
