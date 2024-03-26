@@ -33,16 +33,39 @@ export default function BookingList() {
             text-center my-10 text-black">No CoWorkingSpace Booking</div>
             :
             bookResponse?.data.map((bookingItem:BookingItem)=>(
-                <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-6"
-                key={bookingItem._id}>
-                    <div className="text-xl font-bold mt-2">booking_id: {bookingItem._id}</div>
-                    <div className="text-xl font-bold">bookDate: {new Date(bookingItem.bookDate).toString()}</div>
-                    <div className="text-xl font-bold">coworkingspace: </div>
-                    <div className="text-md ml-4">_id: {bookingItem.coworkingspace._id}</div>
-                    <div className="text-md ml-4">name: {bookingItem.coworkingspace.name}</div>
-                    <div className="text-md ml-4">address: {bookingItem.coworkingspace.address}</div>
-                    <div className="text-md ml-4">tel: {bookingItem.coworkingspace.tel}</div>
-                    <div className="text-xl font-bold">createdAt: {new Date(bookingItem.createdAt).toString()}</div>
+                <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-6" key={bookingItem._id}>
+                    <div className="mt-2">
+                        <span className="text-2xl font-bold">booking_id:</span> 
+                        <span className="text-lg"> {bookingItem._id}</span>
+                    </div>
+                    <div>
+                        <span className="text-2xl font-bold">bookDate:</span>
+                        <span className="text-lg"> {new Date(bookingItem.bookDate).toString()}</span>
+                    </div>
+                    <div>
+                        <span className="text-2xl font-bold">coworkingspace:</span>
+                    </div>
+                    <div className="ml-4">
+                        <span className="text-xl font-bold">_id:</span>
+                        <span className="text-md"> {bookingItem.coworkingspace._id}</span>
+                    </div>
+                    <div className="ml-4">
+                        <span className="text-xl font-bold">name:</span>
+                        <span className="text-md"> {bookingItem.coworkingspace.name}</span>
+                    </div>
+                    <div className="ml-4">
+                        <span className="text-xl font-bold">address:</span>
+                        <span className="text-md"> {bookingItem.coworkingspace.address}</span>
+                    </div>
+                    <div className="ml-4 mb-4">
+                        <span className="text-xl font-bold">tel:</span>
+                        <span className="text-md"> {bookingItem.coworkingspace.tel}</span>
+                    </div>
+                    <div>
+                        <span className="text-2xl font-bold">createdAt:</span>
+                        <span className="text-lg"> {new Date(bookingItem.createdAt).toString()}</span>
+                    </div>
+                    
                     
                     <div className="flex flex-row space-x-4">
                         <Link href={`/editBooking/${bookingItem._id}`}>
