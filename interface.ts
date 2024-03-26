@@ -1,28 +1,40 @@
 export interface CoWorkingSpaceItem {
+  _id: string,
+  name: string,
+  address: string,
+  tel: string,
+  open_time: string,
+  close_time: string,
+  __v: number,
+  id: string,
+  image: string
+}
+
+export interface BookingItem {
+  _id: string,
+  bookDate: string,
+  user: string,
+  coworkingspace: {
     _id: string,
     name: string,
     address: string,
     tel: string,
-    open_time: string,
-    close_time: string,
-    __v: number,
-    id: string,
-    image: string
+    id: string
+  },
+  createdAt: string
 }
 
-export interface BookingItem {
-  name: string,
-  surname: string,
-  id: string,
-  coworkingspace: string,
-  bookDate: string
+export interface BookingJson {
+  success: boolean,
+  count: number,
+  data: BookingItem[]
 }
   
 export interface CoWorkingSpaceJson {
-    success: boolean,
-    count: number,
-    pagination: Object,
-    data: CoWorkingSpaceItem[]
+  success: boolean,
+  count: number,
+  pagination: Object,
+  data: CoWorkingSpaceItem[]
 }
 
 export interface UserJson {

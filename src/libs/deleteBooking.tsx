@@ -7,7 +7,7 @@ export default async function deleteCoWorkingSpace(token:string, id:string) {
     })
 
     if(!response.ok) {
-        throw new Error("Cannot delete coworking space")
+        throw new Error("Cannot delete booking space")
     }
 
     const responseData = await response.json();

@@ -15,21 +15,6 @@ export default function Booking() {
 
     const { data: session } = useSession()
 
-    const dispatch = useDispatch<AppDispatch>()
-
-    const makeBooking = () => {
-        // if(bookDate) {
-        //     const item:BookingItem = {
-        //         name: fname,
-        //         surname: lname,
-        //         id: citizenid,
-        //         coworkingspace: bookLocation,
-        //         bookDate: dayjs(bookDate).format("YYYY/MM/DD")
-        //     }
-        //     dispatch(addBooking(item))
-        // }
-    }
-
     const addBooking = async () => {
         console.log(session?.user.token, bookDate?.toString(), bookLocation)
         try {
@@ -40,27 +25,12 @@ export default function Booking() {
         }
     }
 
-    const [fname, setFname] = useState<string>("")
-    const [lname, setLname] = useState<string>("")
-    const [citizenid, setCitizenId] = useState<string>("")
     const [bookDate, setBookDate] = useState<Dayjs|null>(null)
     const [bookLocation, setBookLocation] = useState<string>('')
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-6">
             <div className="text-6xl text-center">CoWorkingSpace Booking</div>
-
-            <div className="flex flex-col space-y-6 p-6">
-                <TextField variant="standard" name="Name" label="Name"
-                className="h-[2em] w-[200px]" value={fname}
-                onChange={(e)=>setFname(e.target.value)}></TextField>
-                <TextField variant="standard" name="Lastname" label="Lastname"
-                className="h-[2em] w-[200px]"value={lname}
-                onChange={(e)=>setLname(e.target.value)}></TextField>
-                <TextField variant="standard" name="Citizen ID" label="Citizen ID"
-                className="h-[2em] w-[200px]" value={citizenid}
-                onChange={(e)=>setCitizenId(e.target.value)}></TextField>
-            </div>
 
             <div className="w-fit space-y-2">
                 <div className="text-md text-left text-gray-600">Booking Date and Location</div>

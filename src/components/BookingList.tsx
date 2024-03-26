@@ -2,30 +2,51 @@
 import { useAppSelector, AppDispatch } from "@/redux/store"
 import { useDispatch } from "react-redux"
 import { removeBooking } from "@/redux/features/bookSlice"
-import { BookingItem } from "../../interface"
+import { BookingItem, BookingJson } from "../../interface"
+import { useState, useEffect } from "react"
+import getBookings from "@/libs/getBookings"
+import { useSession } from 'next-auth/react'
 
 export default function BookingList() {
     
-    const bookItems = useAppSelector( (state)=>state.bookSlice.bookItems )
-    const dispatch = useDispatch<AppDispatch>()
+    // const bookItems = useAppSelector( (state)=>state.bookSlice.bookItems )
+    // const dispatch = useDispatch<AppDispatch>()
+
+    const { data: session } = useSession()
+
+    const [bookResponse, setBookResponse] = useState<BookingJson | null>(null)
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            var booking
+            if(session) {
+                booking = await getBookings(session?.user.token)
+            }
+            setBookResponse(booking)
+        }
+        fetchData()
+    }, [])
 
     return (
         <>
         {   
-            bookItems.length == 0 ? <div className="text-4xl font-medium
+            bookResponse?.count == 0 ? <div className="text-4xl font-medium
             text-center my-10 text-black">No CoWorkingSpace Booking</div>
             :
-            bookItems.map((bookingItem:BookingItem)=>(
+            bookResponse?.data.map((bookingItem:BookingItem)=>(
                 <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2"
-                key={bookingItem.id}>
-                    <div className="text-md">Name: {bookingItem.name}</div>
-                    <div className="text-md">Surname: {bookingItem.surname}</div>
-                    <div className="text-md">ID: {bookingItem.id}</div>
-                    <div className="text-md">At: {bookingItem.coworkingspace}</div>
-                    <div className="text-md">Date: {bookingItem.bookDate}</div>
+                key={bookingItem._id}>
+                    <div className="text-md mt-2">booking_id: {bookingItem._id}</div>
+                    <div className="text-md">bookDate: {new Date(bookingItem.bookDate).toString()}</div>
+                    <div className="text-md">coworkingspace: </div>
+                    <div className="text-md ml-4">_id: {bookingItem.coworkingspace._id}</div>
+                    <div className="text-md ml-4">name: {bookingItem.coworkingspace.name}</div>
+                    <div className="text-md ml-4">address: {bookingItem.coworkingspace.address}</div>
+                    <div className="text-md ml-4">tel: {bookingItem.coworkingspace.tel}</div>
+                    <div className="text-md">createdAt: {new Date(bookingItem.createdAt).toString()}</div>
                     
                     <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                    text-white shadow-sm" onClick={()=>dispatch(removeBooking(bookingItem.id))}>
+                    text-white shadow-sm my-4">
                         Remove from Cart
                     </button>
                 </div>
@@ -34,3 +55,9 @@ export default function BookingList() {
         </>
     )
 }   
+
+{/* <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                    text-white shadow-sm" onClick={()=>dispatch(removeBooking(bookingItem.id))}>
+                        Remove from Cart
+                    </button> */}
+                    //new Date(bookingItem.createdAt).toString()
